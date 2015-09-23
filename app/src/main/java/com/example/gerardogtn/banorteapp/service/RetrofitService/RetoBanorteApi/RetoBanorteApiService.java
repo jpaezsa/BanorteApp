@@ -16,7 +16,7 @@ import retrofit.http.Query;
 /**
  * Created by gerardogtn on 9/23/15.
  */
-public interface RetoBanorteApi {
+public interface RetoBanorteApiService {
 
     @GET(RetoBanorteApiConstants.URL_USERS)
     void getAllUsers(Callback<List<User>> callback);
