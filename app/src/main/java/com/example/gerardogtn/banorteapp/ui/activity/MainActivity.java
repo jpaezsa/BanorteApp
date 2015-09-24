@@ -6,39 +6,69 @@ import android.animation.ObjectAnimator;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.gerardogtn.banorteapp.R;
+import com.example.gerardogtn.banorteapp.ui.util.OnSwipeEvent;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getSupportActionBar().hide(); //Debug
         setContentView(R.layout.activity_main);
-        initializeElements();
-
+        this.getSupportActionBar().hide();
+        initializeDefaultItems();
+        initializeEditText();
     }
 
-    //Debug
-    private void initializeElements()
+
+    private void initializeEditText()
     {
-        for (int i = 0; i < 2; i++)  inflateCard3("Titulo " + i, "Subititulo");
-        for (int i = 0; i < 4; i++)  inflateCard2("Titulo " + i, "Subititulo", 0);
+        ((EditText)this.findViewById(R.id.activity_main_search_edit_text)).addTextChangedListener(
+                new TextWatcher() {
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        if (s.length() == 0) initializeDefaultItems();
+                        else setSearchItems();
+                    }
 
-        inflateCard1("Titulo ", "Subititulo","#1976D2",0);
-        inflateCard1("Titulo ", "Subititulo","#009688",0);
-        inflateCard1("Titulo ", "Subititulo","#F5BE28",0);
-        inflateCard1("Titulo ", "Subititulo","#ED7D32",0);
-        inflateCard1("Titulo ", "Subititulo","#7C4DFA",0);
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    }
 
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                    }
+                }
+        );
     }
 
+
+    private void initializeDefaultItems()
+    {
+        ((ViewGroup) this.findViewById(R.id.activity_main_content_container)).removeAllViews();
+        inflateCard1("Transacciones", "Subititulo", "#1976D2", R.mipmap.img_card_transfer);
+        inflateCard1("Servicios", "Subititulo","#009688",0);
+        inflateCard1("Seguros", "Subititulo","#F5BE28",0);
+        inflateCard1("Tarjetas", "Subititulo","#ED7D32",R.mipmap.img_checkbook);
+        inflateCard1("Otros ", "Subititulo", "#7C4DFA", 0);
+    }
+
+
+    private void setSearchItems()
+    {
+        ((ViewGroup) this.findViewById(R.id.activity_main_content_container)).removeAllViews();
+    }
 
     private View inflateCard(int layout)
     {
@@ -48,36 +78,53 @@ public class MainActivity extends AppCompatActivity {
         return view;
     }
 
-    private void inflateCard1(String title, String subtitle, String color, int image )
+    private void inflateCard1(String title, String subtitle, String color, int image)
     {
-        View view = inflateCard(R.layout.activity_main_card_design_1);
+        final View view = inflateCard(R.layout.activity_main_card_design_1);
+        view.setTag(title);
+
         //Set attributes
         ((TextView)view.findViewById(R.id.activity_main_card_title)).setText(title);
         ((TextView)view.findViewById(R.id.activity_main_card_subtitle)).setText(subtitle);
+        ((ImageView)view.findViewById(R.id.activity_main_card_image)).setImageResource(image);
         view.setBackgroundColor(Color.parseColor(color));
-        //Card flip
-        view.setOnClickListener(new View.OnClickListener() {
+
+        OnSwipeEvent swipe = new OnSwipeEvent(
+                (ScrollView)this.findViewById(R.id.activity_main_scroll_view),view,
+                4,30,350,2)
+        {
             @Override
-            public void onClick(final View v) {
+            public void onSwipeLeft()
+            {
                 AnimatorSet as = new AnimatorSet();
-                as.play(ObjectAnimator.ofFloat(v, "rotationY", -180).setDuration(650));
+                as.play(ObjectAnimator.ofFloat(view, "rotationY", -180).setDuration(650));
+                as.start();
+            }
+
+            @Override
+            public void onSwipeRight(){
+                AnimatorSet as = new AnimatorSet();
+                as.play(ObjectAnimator.ofFloat(view, "rotationY", -180).setDuration(650));
 
                 as.addListener(new Animator.AnimatorListener() {
-                    @Override  public void onAnimationStart(Animator animation) {}
+                    @Override  public void onAnimationStart (Animator animation) {}
                     @Override  public void onAnimationCancel(Animator animation) {}
                     @Override  public void onAnimationRepeat(Animator animation) {}
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        v.startAnimation(AnimationUtils.loadAnimation(v.getContext(), android.R.anim.fade_in));
-                        v.setBackgroundColor(Color.parseColor("#a0a0a0"));
+                        view.startAnimation(AnimationUtils.loadAnimation(view.getContext(), android.R.anim.fade_in));
+                        view.setBackgroundColor(Color.parseColor("#a0a0a0"));
                         AnimatorSet as = new AnimatorSet();
-                        as.play(ObjectAnimator.ofFloat(v, "rotationY", 180).setDuration(0));
+                        as.play(ObjectAnimator.ofFloat(view, "rotationY", 180).setDuration(0));
                     }
                 });
                 as.start();
             }
-        });
+
+        };
+        swipe.setDragged(false);
+        view.setOnTouchListener(swipe);
     }
 
 

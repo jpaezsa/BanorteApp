@@ -1,52 +1,49 @@
 package com.example.gerardogtn.banorteapp.ui.util;
 
 
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
-
-import com.maildots.maildots.R;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 
 public class OnSwipeEvent implements View.OnTouchListener
 {
 
-    private RecyclerView mRecyclerView;
-    private View mLayout;
-    private View mBackground;
-    private Drawable mShapeLeft;
-    private Drawable mShapeRight;
-    private Drawable mDefaultDrawable;
-    private float mMinSwipe;
-    private float mActionSwipe;
-    private float mMaxSwipe;
-    private float mMinSwipeClick;
+    private ScrollView mScrollView;
+    private View    mLayout;
+    private float   mMinSwipe;
+    private float   mActionSwipe;
+    private float   mMaxSwipe;
+    private float   mMinSwipeClick;
+    private boolean mIsDragged;
 
-    private FrameLayout.LayoutParams lp;
+    private LinearLayout.LayoutParams lp;
 
-    public OnSwipeEvent(RecyclerView recyclerView, View layout, View background,
-                        Drawable shapeLeft, Drawable shapeRight, Drawable defaultDrawable,
+    public OnSwipeEvent(ScrollView scrollView, View layout,
                         float minSwipe, float actionSwipe, float maxSwipe, float minSwipeClick)
     {
-        mRecyclerView    = recyclerView;
+        mScrollView      = scrollView;
         mLayout          = layout;
-        mBackground      = background;
-        mShapeLeft       = shapeLeft;
-        mShapeRight      = shapeRight;
-        mDefaultDrawable = defaultDrawable;
         mMinSwipe        = minSwipe;
         mActionSwipe     = actionSwipe;
         mMaxSwipe        = maxSwipe;
         mMinSwipeClick   = minSwipeClick;
-        lp               = (FrameLayout.LayoutParams)mLayout.getLayoutParams();
+        lp               = (LinearLayout.LayoutParams)mLayout.getLayoutParams();
+        mIsDragged       = true;
     }
 
     float posIni = 0;
     float dist = 0;
+
+
+    public void setDragged(boolean isDragged){
+        mIsDragged = isDragged;
+    }
 
     @Override
     public boolean onTouch(View v, MotionEvent event)
@@ -57,38 +54,31 @@ public class OnSwipeEvent implements View.OnTouchListener
         if (action == MotionEvent.ACTION_DOWN)
         {
             posIni = event.getX();
-            mLayout.setBackgroundResource(R.color.application_color_pressed);
             return true;
         }
 
         //OnSwipe
         if (action == MotionEvent.ACTION_MOVE)
         {
-            dist = (event.getX()-posIni)*0.8f;
+            dist = (event.getX()-posIni)*1f;
 
             if (Math.abs(dist) > mMinSwipe) {
 
-                mRecyclerView.requestDisallowInterceptTouchEvent(true);
-                if (dist < 0 && Math.abs(dist) < mMaxSwipe*1.12f)
+                mScrollView.requestDisallowInterceptTouchEvent(true);
+
+                if (dist > 0 && Math.abs(dist) < mMaxSwipe && mIsDragged)
                 {
-                    lp.setMargins((int)(dist), 0, (int)(-dist), 0);
+                    lp.setMargins((int) (dist),7,(int) (-dist),7);
                     mLayout.setLayoutParams(lp);
-                    mBackground.setBackgroundDrawable(mShapeRight);
                 }
 
-                if (dist > 0 && Math.abs(dist) < mMaxSwipe )
+
+                if (dist < 0 && Math.abs(dist) < mMaxSwipe && mIsDragged)
                 {
-                    lp.setMargins((int) (dist),0,(int) (-dist),0);
+                    lp.setMargins((int) (dist),7,(int) (-dist),7);
                     mLayout.setLayoutParams(lp);
-                    mBackground.setBackgroundDrawable(mShapeLeft);
                 }
             }
-
-
-            if (Math.abs(dist) < mMinSwipeClick)
-                mLayout.setBackgroundResource(R.color.application_color_pressed);
-            else
-                mLayout.setBackgroundDrawable(mDefaultDrawable);
 
             return true;
         }
@@ -96,13 +86,9 @@ public class OnSwipeEvent implements View.OnTouchListener
         //Release
         if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL)
         {
-            mBackground.setPadding(0, 0,0, 0);
-            mBackground.setBackgroundDrawable(null);
-            lp.setMargins(0,0,0,0);
+            lp.setMargins(0, 7, 0, 7);
             mLayout.setLayoutParams(lp);
-            mRecyclerView.requestDisallowInterceptTouchEvent(false);
-            mRecyclerView.getParent().requestDisallowInterceptTouchEvent(false);
-            mLayout.setBackgroundDrawable(mDefaultDrawable);
+            mScrollView.requestDisallowInterceptTouchEvent(false);
 
             if (Math.abs(dist) < mMinSwipeClick &&  action != MotionEvent.ACTION_CANCEL)
                 onClick();
@@ -117,7 +103,7 @@ public class OnSwipeEvent implements View.OnTouchListener
                 }
             }
 
-            if (Math.abs(dist) > mMinSwipe) { //Return to the original position
+            if (Math.abs(dist) > mMinSwipe && dist > 0) { //Return to the original position
                 TranslateAnimation translateAnimation = new TranslateAnimation(dist, 0, 0, 0);
                 translateAnimation.setDuration(2 * (int) Math.abs(dist));
                 mLayout.startAnimation(translateAnimation);

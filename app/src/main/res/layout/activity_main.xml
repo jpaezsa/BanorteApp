@@ -11,6 +11,7 @@
 
 
     <ScrollView
+        android:id="@+id/activity_main_scroll_view"
         android:layout_below="@id/activity_main_ab"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -68,7 +69,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginRight="10dp"
+            android:animateLayoutChanges="true">
             <!--
             <include layout="@layout/activity_main_card_design_3"/>
             <include layout="@layout/activity_main_card_design_2"/>
