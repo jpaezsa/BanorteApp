@@ -1,4 +1,4 @@
-package com.example.gerardogtn.banorteapp;
+package com.example.gerardogtn.banorteapp.ui.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+
+import com.example.gerardogtn.banorteapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
