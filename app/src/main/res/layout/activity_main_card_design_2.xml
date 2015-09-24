@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/shp_main_activity_card_background"
+    android:padding="15dp">
+    
+    <ImageView
+        android:id="@+id/activity_main_card_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="6dp"
+        android:background="@drawable/shp_main_activity_card_2_img"
+        android:src="@mipmap/img_service_cfe" />
+
+    <ImageView
+        android:id="@+id/activity_main_card_pin"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:paddingBottom="20dp"
+        android:src="@mipmap/ic_pin_white"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@+id/activity_main_card_title"
+        android:layout_toRightOf="@id/activity_main_card_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#505050"
+        android:textSize="17sp"
+        android:text="Acción a ejecutar"/>
+
+    <TextView
+        android:id="@+id/activity_main_card_subtitle"
+        android:layout_below="@id/activity_main_card_title"
+        android:layout_alignLeft="@id/activity_main_card_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#707070"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:layout_marginBottom="15dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"/>
+
+
+
+
+</RelativeLayout>

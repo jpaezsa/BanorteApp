@@ -5,4 +5,7 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <color name="color_ab">#F44336</color>
+    <integer name="card_flip_time_full">300</integer>
+    <integer name="card_flip_time_half">150</integer>
 </resources>
