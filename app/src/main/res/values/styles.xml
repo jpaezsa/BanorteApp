@@ -27,6 +27,12 @@
         <item name="android:colorBackground">@color/primary_dark</item>
     </style>
 
+    <style name="ToolbarTheme" parent="BanorteTheme">
+        <item name="android:textColorPrimary">@color/toolbar_secondary_color</item>
+        <item name="android:textColorSecondary">@color/toolbar_secondary_color</item>
+        <item name="android:textColor">@color/toolbar_secondary_color</item>
+    </style>
+
 
 
 </resources>
