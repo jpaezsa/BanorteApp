@@ -15,7 +15,7 @@ public class RetoBanorteApiClient {
     public static RetoBanorteApiService getInstance() {
         if (apiService == null) {
             Gson gsonDateBuilder = new GsonBuilder()
-                    .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS")
+                    .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
                     .create();
 
             RestAdapter adapter = new RestAdapter.Builder()
