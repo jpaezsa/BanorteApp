@@ -10,7 +10,10 @@ import android.widget.TextView;
 import com.example.gerardogtn.banorteapp.R;
 import com.example.gerardogtn.banorteapp.data.model.Movement;
 import com.example.gerardogtn.banorteapp.util.CurrencyFormat;
+import com.example.gerardogtn.banorteapp.util.DateFormat;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -42,6 +45,13 @@ public class TransferAdapter extends RecyclerView.Adapter<TransferAdapter.Transf
         transferViewHolder.setData(mTransfers.get(i));
     }
 
+    public void addItemsToList(List<Movement> movements, boolean clear){
+        if (clear){
+            mTransfers = new ArrayList<>();
+        }
+        mTransfers.addAll(movements);
+    }
+
     @Override
     public int getItemCount() {
         return mTransfers.size();
@@ -68,7 +78,7 @@ public class TransferAdapter extends RecyclerView.Adapter<TransferAdapter.Transf
         // EFFECTS:  Represents and visualizes venue data with views.
         public void setData(Movement movement) {
             mDescription.setText(movement.getDescription());
-            mDate.setText(movement.getDate().toString());
+            mDate.setText(DateFormat.getDateFormat(movement.getDate()));
             mPrice.setText(CurrencyFormat.getCurrencyFormat(movement.getAmount()));
         }
     }
