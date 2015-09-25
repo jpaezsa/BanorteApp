@@ -1,18 +1,47 @@
 package com.example.gerardogtn.banorteapp.data.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.math.BigDecimal;
 
 /**
  * Created by gerardogtn on 9/23/15.
  */
 public class UserProductResponse {
+
+    @SerializedName("CLIENTEID")
     private int clientId;
+
+    @SerializedName("ESTATUS")
     private String status;
+
+    @SerializedName("NOCUENTA")
     private int accountId;
+
+    @SerializedName("DESCRIPCION")
     private String description;
+
+    @SerializedName("NOMBREPRODUCTO")
     private String productName;
+
+    @SerializedName("TIPOPRODUCTO")
     private String productType;
+
+    @SerializedName("SALDO")
     private BigDecimal balance;
+
+    @Override
+    public String toString() {
+        return "UserProductResponse{" +
+                "clientId=" + clientId +
+                ", status='" + status + '\'' +
+                ", accountId=" + accountId +
+                ", description='" + description + '\'' +
+                ", productName='" + productName + '\'' +
+                ", productType='" + productType + '\'' +
+                ", balance=" + balance +
+                '}';
+    }
 
     public UserProductResponse(int clientId, String status, int accountId, String description,
                                String productName, String productType, BigDecimal balance) {
