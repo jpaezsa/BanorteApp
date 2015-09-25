@@ -6,8 +6,11 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,18 +19,50 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.example.gerardogtn.banorteapp.R;
+import com.example.gerardogtn.banorteapp.data.model.User;
+import com.example.gerardogtn.banorteapp.data.model.UserProductResponse;
+import com.example.gerardogtn.banorteapp.service.RetrofitService.RetoBanorteApi.RetoBanorteApiClient;
+import com.example.gerardogtn.banorteapp.util.CurrencyFormat;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,
+        Callback<List<UserProductResponse>>{
 
-//    @Bind(R.id.toolbar)
-//    Toolbar mToolbar;
+    public static final String LOG_TAG = MainActivity.class.getSimpleName();
 
+    @Bind(R.id.toolbar)
+    Toolbar mToolbar;
 
     @Bind(R.id.collapsing_toolbar)
     CollapsingToolbarLayout mCollapsingToolbar;
+
+    @Bind(R.id.activity_main_ab_profile_name)
+    TextView mUserName;
+
+    @Bind(R.id.account1)
+    TextView mFirstAccount;
+
+    @Bind(R.id.activity_main_ab_deposit)
+    TextView mFirstBalance;
+
+    @Bind(R.id.account2)
+    TextView mSecondAccount;
+
+    @Bind(R.id.activity_main_ab_credit)
+    TextView mSecondBalance;
+
+    @Bind(R.id.account3)
+    TextView mThirdAccount;
+
+    @Bind(R.id.activity_main_ab_investment)
+    TextView mThirdBalance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +71,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
         setUpToolbar();
         initializeElements();
+        setUpUserName();
+        RetoBanorteApiClient.getInstance().getUserProducts(1, this);
+    }
+
+    private void setUpUserName() {
+        RetoBanorteApiClient.getInstance().getUser(1,
+                new Callback<List<User>>() {
+
+                    @Override
+                    public void success(List<User> users, Response response) {
+                        User user = users.get(0);
+                        mUserName.setText(user.getFirstName() + " " + user.getPaternalLastName());
+                        printWelcomeMessage(user.getFirstName());
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Log.e(LOG_TAG, "No pudimos obtener el nombre del usuario");
+                        error.printStackTrace();
+                    }
+
+                });
+    }
+
+    private void printWelcomeMessage(String name) {
+        Snackbar.make(mUserName, "Bienvenido " + name, Snackbar.LENGTH_LONG).show();
     }
 
     @Override
@@ -131,4 +192,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    @Override
+    public void success(List<UserProductResponse> userProductResponses, Response response) {
+        mFirstAccount.setText(userProductResponses.get(0).getDescription());
+        mFirstBalance.setText(CurrencyFormat.getCurrencyFormat(userProductResponses.get(0).getBalance()));
+        mSecondAccount.setText(userProductResponses.get(1).getDescription());
+        mSecondBalance.setText(CurrencyFormat.getCurrencyFormat(userProductResponses.get(1).getBalance()));
+        mThirdAccount.setText(userProductResponses.get(2).getDescription());
+        mThirdBalance.setText(CurrencyFormat.getCurrencyFormat(userProductResponses.get(2).getBalance()));
+    }
+
+    @Override
+    public void failure(RetrofitError error) {
+        Log.e(LOG_TAG, "error getting accounts");
+        error.printStackTrace();
+    }
 }
