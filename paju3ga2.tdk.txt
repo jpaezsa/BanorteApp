@@ -1,0 +1,57 @@
+﻿Merge branch 'master' into feature/swipeCards
+
+Conflicts:
+	app/build.gradle
+	app/src/main/AndroidManifest.xml
+	app/src/main/java/com/example/gerardogtn/banorteapp/ui/activity/MainActivity.java
+	app/src/main/res/layout/activity_main.xml
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch feature/swipeCards
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   app/build.gradle
+#	modified:   app/src/main/AndroidManifest.xml
+#	new file:   app/src/main/ic_launcher-web.png
+#	modified:   app/src/main/java/com/example/gerardogtn/banorteapp/data/model/Movement.java
+#	modified:   app/src/main/java/com/example/gerardogtn/banorteapp/data/model/MovementType.java
+#	modified:   app/src/main/java/com/example/gerardogtn/banorteapp/data/model/Product.java
+#	modified:   app/src/main/java/com/example/gerardogtn/banorteapp/data/model/User.java
+#	modified:   app/src/main/java/com/example/gerardogtn/banorteapp/data/model/UserProductResponse.java
+#	modified:   app/src/main/java/com/example/gerardogtn/banorteapp/service/PreferencesHelper/PreferencesUtil.java
+#	modified:   app/src/main/java/com/example/gerardogtn/banorteapp/service/RetrofitService/RetoBanorteApi/RetoBanorteApiClient.java
+#	modified:   app/src/main/java/com/example/gerardogtn/banorteapp/service/RetrofitService/RetoBanorteApi/RetoBanorteApiConstants.java
+#	modified:   app/src/main/java/com/example/gerardogtn/banorteapp/service/RetrofitService/RetoBanorteApi/RetoBanorteApiService.java
+#	modified:   app/src/main/java/com/example/gerardogtn/banorteapp/ui/activity/AsyncWatson.java
+#	modified:   app/src/main/java/com/example/gerardogtn/banorteapp/ui/activity/MainActivity.java
+#	modified:   app/src/main/java/com/example/gerardogtn/banorteapp/ui/activity/ShakeMapActivity.java
+#	new file:   app/src/main/java/com/example/gerardogtn/banorteapp/ui/activity/TransfersActivity.java
+#	new file:   app/src/main/java/com/example/gerardogtn/banorteapp/ui/adapter/TransferAdapter.java
+#	new file:   app/src/main/java/com/example/gerardogtn/banorteapp/util/CurrencyFormat.java
+#	new file:   app/src/main/java/com/example/gerardogtn/banorteapp/util/DateFormat.java
+#	modified:   app/src/main/res/layout/activity_main.xml
+#	modified:   app/src/main/res/layout/activity_main_custom_ab.xml
+#	new file:   app/src/main/res/layout/activity_transfers.xml
+#	new file:   app/src/main/res/layout/item_transfer.xml
+#	new file:   app/src/main/res/layout/partial_collapsing_toolbar.xml
+#	new file:   app/src/main/res/layout/partial_toolbar.xml
+#	modified:   app/src/main/res/layout/shake_map.xml
+#	modified:   app/src/main/res/menu/menu_main.xml
+#	modified:   app/src/main/res/mipmap-hdpi/ic_launcher.png
+#	modified:   app/src/main/res/mipmap-mdpi/ic_launcher.png
+#	modified:   app/src/main/res/mipmap-xhdpi/ic_launcher.png
+#	modified:   app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+#	new file:   app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+#	new file:   app/src/main/res/values/colors.xml
+#	modified:   app/src/main/res/values/dimens.xml
+#	modified:   app/src/main/res/values/styles.xml
+#
+

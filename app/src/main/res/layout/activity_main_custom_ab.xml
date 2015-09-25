@@ -44,11 +44,12 @@
             android:layout_weight="0.3">
 
             <TextView
+                android:id="@+id/account1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#b0500000"
                 android:textSize="14.5sp"
-                android:text="Deposito"/>
+                android:text="C. de nomina"/>
 
             <TextView
                 android:id="@+id/activity_main_ab_deposit"
@@ -71,11 +72,12 @@
             android:layout_weight="0.3">
 
             <TextView
+                android:id="@+id/account2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#b0500000"
                 android:textSize="14.5sp"
-                android:text="Credito"/>
+                android:text="T. de credito"/>
 
             <TextView
                 android:id="@+id/activity_main_ab_credit"
@@ -97,11 +99,12 @@
             android:layout_weight="0.3">
 
             <TextView
+                android:id="@+id/account3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#b0500000"
                 android:textSize="14.5sp"
-                android:text="Inversión"/>
+                android:text="C. de auto"/>
 
             <TextView
                 android:id="@+id/activity_main_ab_investment"

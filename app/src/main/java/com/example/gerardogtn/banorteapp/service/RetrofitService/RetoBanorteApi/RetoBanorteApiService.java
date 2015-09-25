@@ -22,10 +22,10 @@ public interface RetoBanorteApiService {
     void getAllUsers(Callback<List<User>> callback);
 
     @GET(RetoBanorteApiConstants.URL_USERS)
-    void getUser(@Query("ClienteID") int userId, Callback<User> callback);
+    void getUser(@Query("ClienteID") int userId, Callback<List<User>> callback);
 
     @GET(RetoBanorteApiConstants.URL_USER_PRODUCTS)
-    void getUserProducts(@Query("ClienteID") int userId, Callback<UserProductResponse> callback);
+    void getUserProducts(@Query("ClienteID") int userId, Callback<List<UserProductResponse>> callback);
 
     @GET(RetoBanorteApiConstants.URL_PRODUCTS)
     void getProducts(Callback<List<Product>> callback);

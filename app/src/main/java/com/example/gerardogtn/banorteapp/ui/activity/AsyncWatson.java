@@ -36,14 +36,22 @@ public class AsyncWatson extends AsyncTask<String, String, String> {
 
     @Override
     protected String doInBackground(String... params) {
-        /*Document doc = null;
+        Document doc = null;
+        String result = "";
         try {
-            doc = Jsoup.connect("http://banorteunomas.mybluemix.net/api/labelsearch?query=impuesto").get();
-            //doc = Jsoup.connect("http://banorteunomas.mybluemix.net/api/labelsearch?query=" + mSearch).get();
+            doc = Jsoup.connect("https://es.m.wikipedia.org/wiki/"+mSearch).get();
+            if (doc == null) return "No se encontraron resultados";
+            result = doc.text();
+            result = result.substring(115,result.length());
+            if (result.length() > 180)
+                result = result.substring(0,170);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return doc.text();*/
+
+        return result;
+
+        /*
         String response = "";
 
         try {
@@ -71,6 +79,7 @@ public class AsyncWatson extends AsyncTask<String, String, String> {
             return "No se encontraron resultados";
         }
         return response;
+        */
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.example.gerardogtn.banorteapp.data.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -7,10 +9,28 @@ import java.util.Date;
  * Created by gerardogtn on 9/23/15.
  */
 public class Movement {
+
+    @SerializedName("MOVIMIENTOID")
     private int id;
+
+    @SerializedName("FECHA")
     private Date date;
+
+    @SerializedName("MONTO")
     private BigDecimal amount;
+
+    @SerializedName("DESCRIPCION")
     private String description;
+
+    @Override
+    public String toString() {
+        return "Movement{" +
+                "id=" + id +
+                ", date=" + date +
+                ", amount=" + amount +
+                ", description='" + description + '\'' +
+                '}';
+    }
 
     public Movement(int id, Date date, BigDecimal amount, String description) {
         this.id = id;

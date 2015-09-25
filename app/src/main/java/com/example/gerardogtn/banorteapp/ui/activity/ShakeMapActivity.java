@@ -9,6 +9,7 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -28,21 +29,32 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 
 public class ShakeMapActivity extends AppCompatActivity implements OnMapReadyCallback, SensorListener {
 
     private boolean isShakeActive = false;
 
+    @Bind(R.id.toolbar)
+    Toolbar mToolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shake_map);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_ab)));
+        ButterKnife.bind(this);
+        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_ab)));
         initializeSensor();
         initializeMap();
         initializeButton();
+        setUpToolbar();
+    }
+
+    private void setUpToolbar() {
+        setSupportActionBar(mToolbar);
+        mToolbar.setTitle("Shakes recientes");
     }
 
     private void initializeSensor() {
@@ -114,7 +126,7 @@ public class ShakeMapActivity extends AppCompatActivity implements OnMapReadyCal
     }
 
 
-    private static final int SHAKE_THRESHOLD = 600;
+    private static final int SHAKE_THRESHOLD = 700;
     long lastUpdate = 0;
     float last_x = 0, last_y = 0, last_z = 0, x = 0, y = 0, z = 0;
 

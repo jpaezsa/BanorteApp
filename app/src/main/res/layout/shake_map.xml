@@ -5,6 +5,8 @@
     android:background="#f0f0f0"
     tools:context=".ShakeMainActivity">
 
+    <include layout="@layout/partial_toolbar"/>
+
 
     <FrameLayout
         android:id="@+id/shake_map_fragment"

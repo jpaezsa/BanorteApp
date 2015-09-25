@@ -1,12 +1,22 @@
 package com.example.gerardogtn.banorteapp.data.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by gerardogtn on 9/23/15.
  */
 public class User {
+
+    @SerializedName("CLIENTEID")
     private int id;
+
+    @SerializedName("NOMBRE")
     private String firstName;
+
+    @SerializedName("APELLIDOPATERNO")
     private String paternalLastName;
+
+    @SerializedName("APELLIDOMATERNO")
     private String maternalLastName;
 
     public User(int id, String firstName, String paternalLastName, String maternalLastName) {
