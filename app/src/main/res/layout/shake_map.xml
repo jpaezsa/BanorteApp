@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    tools:context=".ShakeMainActivity">
+
+
+    <FrameLayout
+        android:id="@+id/shake_map_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:id="@+id/shake_map_go_shake_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#a0000000">
+
+
+
+
+        <EditText
+            android:id="@+id/shake_map_monto"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:textSize="30sp"
+            android:inputType="numberDecimal"
+            android:hint="Monto"
+            android:background="@drawable/shp_main_activity_card_background"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="40dp"
+            />
+
+        <TextView
+            android:id="@+id/shake_map_go_shake_button"
+            android:layout_below="@+id/shake_map_monto"
+            android:visibility="gone"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="-20dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:background="@drawable/shp_shake_map_shake"
+            android:textSize="25dp"
+            android:layout_centerHorizontal="true"
+            android:text="Shake" />
+
+
+
+        <TextView
+            android:id="@+id/shake_map_go_habilitar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#ffffff"
+            android:background="#40ffffff"
+            android:padding="7dp"
+            android:textSize="15sp"
+            android:text="Habilitar shake" />
+
+        <TextView
+            android:id="@+id/shake_map_go_hide_shake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="#ffffff"
+            android:background="#40ffffff"
+            android:padding="7dp"
+            android:textSize="15sp"
+            android:text="Ver shakes" />
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

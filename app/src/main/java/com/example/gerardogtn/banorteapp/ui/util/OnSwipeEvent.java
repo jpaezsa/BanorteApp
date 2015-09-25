@@ -1,13 +1,10 @@
 package com.example.gerardogtn.banorteapp.ui.util;
 
 
-import android.graphics.drawable.Drawable;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
 
@@ -103,10 +100,10 @@ public class OnSwipeEvent implements View.OnTouchListener
                 }
             }
 
-            if (Math.abs(dist) > mMinSwipe && dist > 0) { //Return to the original position
-                TranslateAnimation translateAnimation = new TranslateAnimation(dist, 0, 0, 0);
-                translateAnimation.setDuration(2 * (int) Math.abs(dist));
-                mLayout.startAnimation(translateAnimation);
+            if (Math.abs(dist) > mMinSwipe && dist > 0 && mIsDragged) { //Return to the original position
+               // TranslateAnimation translateAnimation = new TranslateAnimation(dist, 0, 0, 0);
+               // translateAnimation.setDuration(2 * (int) Math.abs(dist));
+               // mLayout.startAnimation(translateAnimation);
             }
 
 

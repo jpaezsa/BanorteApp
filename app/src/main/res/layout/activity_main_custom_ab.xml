@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="17dp"
-        android:src="@mipmap/img_profile_circle_test"/>
+        android:src="@mipmap/img_profile"/>
 
 
     <TextView

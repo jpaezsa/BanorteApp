@@ -1,69 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="5dp"
     android:layout_marginTop="5dp"
-    android:background="#1976D2"
-    android:padding="15dp">
-    
-    <ImageView
-        android:id="@+id/activity_main_card_image"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@mipmap/img_card_transfer"
-        android:layout_centerHorizontal="true"/>
+    android:background="#1976D2">
 
-    <ImageView
-        android:id="@+id/activity_main_card_pin"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:padding="10dp"
-        android:src="@mipmap/ic_pin_white"
-        android:layout_alignParentRight="true"/>
-
-    <TextView
-        android:id="@+id/activity_main_card_title"
-        android:layout_below="@id/activity_main_card_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#fff"
-        android:textSize="17sp"
-        android:text="Titulo"/>
-
-    <TextView
-        android:id="@+id/activity_main_card_subtitle"
-        android:layout_below="@id/activity_main_card_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#fff"
-        android:textSize="14sp"
-        android:layout_marginBottom="15dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"/>
-
-    <TextView
-        android:id="@+id/activity_main_card_button_1"
-        android:layout_below="@id/activity_main_card_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#20000000"
-        android:textSize="14sp"
-        android:textColor="#fff"
-        android:text="OPCION 1"
-        android:padding="8dp"/>
-
-    <TextView
-        android:id="@+id/activity_main_card_button_2"
-        android:layout_below="@id/activity_main_card_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#20000000"
-        android:textSize="14sp"
-        android:textColor="#fff"
-        android:text="OPCION 2"
-        android:layout_alignParentRight="true"
-        android:padding="8dp"/>
+    <include layout="@layout/activity_main_card_design_1a"/>
 
 
-</RelativeLayout>
+</FrameLayout>
