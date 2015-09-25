@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_ab">
+
+
+    <ImageView
+        android:id="@+id/activity_main_ab_profile_image"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="17dp"
+        android:src="@mipmap/img_profile_circle_test"/>
+
+
+    <TextView
+        android:id="@+id/activity_main_ab_profile_name"
+        android:layout_below="@id/activity_main_ab_profile_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:layout_centerHorizontal="true"
+        android:textSize="15.5sp"
+        android:text="Bienvenido, Erick"/>
+
+
+
+    <LinearLayout
+        android:layout_below="@id/activity_main_ab_profile_name"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:paddingBottom="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.3">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#b0500000"
+                android:textSize="14.5sp"
+                android:text="Deposito"/>
+
+            <TextView
+                android:id="@+id/activity_main_ab_deposit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="#e0ffffff"
+                android:textSize="16sp"
+                android:text="$5 000"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:background="@drawable/shp_main_activity_ab_divider"
+            android:layout_weight="0.3">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#b0500000"
+                android:textSize="14.5sp"
+                android:text="Credito"/>
+
+            <TextView
+                android:id="@+id/activity_main_ab_credit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="#e0ffffff"
+                android:textSize="16sp"
+                android:text="$5 000"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.3">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#b0500000"
+                android:textSize="14.5sp"
+                android:text="Inversión"/>
+
+            <TextView
+                android:id="@+id/activity_main_ab_investment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="16sp"
+                android:textColor="#e0ffffff"
+                android:text="$5 000"/>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -17,9 +17,10 @@
     <dimen name="card_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
-
     <dimen name="fab_elevation">8dp</dimen>
-
     <dimen name="fab_elevation_press">12dp</dimen>
+
+    <integer name="card_flip_time_full">300</integer>
+    <integer name="card_flip_time_half">150</integer>
 
 </resources>
