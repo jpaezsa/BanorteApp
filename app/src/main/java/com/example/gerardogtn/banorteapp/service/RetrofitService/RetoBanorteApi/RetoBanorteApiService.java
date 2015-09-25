@@ -25,7 +25,7 @@ public interface RetoBanorteApiService {
     void getUser(@Query("ClienteID") int userId, Callback<User> callback);
 
     @GET(RetoBanorteApiConstants.URL_USER_PRODUCTS)
-    void getUserProducts(@Query("ClienteID") int userId, Callback<UserProductResponse> callback);
+    void getUserProducts(@Query("ClienteID") int userId, Callback<List<UserProductResponse>> callback);
 
     @GET(RetoBanorteApiConstants.URL_PRODUCTS)
     void getProducts(Callback<List<Product>> callback);

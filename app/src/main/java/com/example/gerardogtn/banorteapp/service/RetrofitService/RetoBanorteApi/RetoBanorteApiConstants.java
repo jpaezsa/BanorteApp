@@ -18,12 +18,12 @@ public class RetoBanorteApiConstants {
     public static final String PARAM_TRANSFER = "/transferencia";
 
 
-    public static final String URL_USERS = URL_BASE + PARAM_CLIENTS;
-    public static final String URL_PRODUCTS = URL_BASE + PARAM_PRODUCTS;
-    public static final String URL_USER_PRODUCTS = URL_BASE + PARAM_CLIENT_PRODUCTS;
-    public static final String URL_ACCOUNT_BALANCE = URL_BASE + PARAM_ACCOUNT_BALANCE;
-    public static final String URL_ACCOUNT_MOVEMENTS = URL_BASE + PARAM_ACCOUNT_MOVEMENTS;
-    public static final String URL_MOVEMENT_TYPES = URL_BASE + PARAM_MOVEMENT_TYPE;
-    public static final String URL_TRANSFER = URL_BASE + PARAM_TRANSFER;
+    public static final String URL_USERS = PARAM_CLIENTS;
+    public static final String URL_PRODUCTS = PARAM_PRODUCTS;
+    public static final String URL_USER_PRODUCTS = PARAM_CLIENT_PRODUCTS;
+    public static final String URL_ACCOUNT_BALANCE = PARAM_ACCOUNT_BALANCE;
+    public static final String URL_ACCOUNT_MOVEMENTS = PARAM_ACCOUNT_MOVEMENTS;
+    public static final String URL_MOVEMENT_TYPES = PARAM_MOVEMENT_TYPE;
+    public static final String URL_TRANSFER = PARAM_TRANSFER;
 
 }
