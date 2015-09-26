@@ -36,6 +36,7 @@ public class AsyncWatson extends AsyncTask<String, String, String> {
 
     @Override
     protected String doInBackground(String... params) {
+        /*
         Document doc = null;
         String result = "";
         try {
@@ -51,7 +52,7 @@ public class AsyncWatson extends AsyncTask<String, String, String> {
 
         return result;
 
-        /*
+        */
         String response = "";
 
         try {
@@ -79,7 +80,7 @@ public class AsyncWatson extends AsyncTask<String, String, String> {
             return "No se encontraron resultados";
         }
         return response;
-        */
+
     }
 
     @Override
